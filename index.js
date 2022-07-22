@@ -1,11 +1,17 @@
 // INSTALL INQUIRER
 const inquirer = require('inquirer');
+const Manager = require('./src/employees/manager');
+
+const employees = [];
 
 // FUNCTION TO GENERATE USER INPUT 
 async function main() {
- 
+    const managerRole = 'Manager'
+    const engineerRole = 'Engineer'
+    const internRole = 'Intern'
     const response = await inquirer.prompt([
-  
+            
+
     // ASK FOR ROLE, NAME, ID, EMAIL
     // IF MANAGER ASK FOR OFFICE NUMBER
     // IF ENGINEER ASK FOR GITHUB
@@ -16,9 +22,9 @@ async function main() {
         message: 'What is the employees role?',
         name: 'role',
         choices: [
-            'Manager',
-            'Engineer',
-            'Intern'
+            managerRole,
+            engineerRole,
+            internRole
         ]
     },
     {
@@ -40,19 +46,19 @@ async function main() {
         type: 'input',
         message: 'What is the employees office number?',
         name: 'officeNum',
-        when: (response) => response.role === 'Manager',
+        when: (response) => response.role === managerRole,
     },
     {
         type: 'input',
         message: 'What is the employees GitHub username?',
         name: 'gitHub',
-        when: (response) => response.role === 'Engineer',
+        when: (response) => response.role === engineerRole,
     },
     {
         type: 'input',
         message: 'What school is the intern from?',
         name: 'school',
-        when: (response) => response.role === 'Intern',
+        when: (response) => response.role === internRole,
     },
     {
         type: 'confirm',
@@ -61,6 +67,20 @@ async function main() {
         },
  ])
 
+    // CHECK ROLE AND STORE EMPLOYEE
+    if(response.role === managerRole) {
+        employees.push(new Manager(response.name, response.id, response.email, response.officeNum))
+    }
+
+    if(response.role === engineerRole) {
+        employees.push(new Engineer(response.name, response.id, response.email, response.gitHub))
+    }
+    if(response.role === internRole) {
+        employees.push(new Intern(response.name, response.id, response.email, response.school))
+    }
+
+    console.log(employees)
+    
      // CHECK IF NEW ENTRY IS DESIRED
      if (!response.complete) {
         //generate html
