@@ -1,6 +1,6 @@
 // INSTALL INQUIRER
 const inquirer = require('inquirer');
-const Manager = require('./src/employees/manager');
+
 
 const employees = [];
 

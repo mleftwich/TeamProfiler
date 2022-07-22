@@ -1,4 +1,4 @@
-const Intern = require('../src/employees/intern');
+const Intern = require('../lib/employees/intern');
 
 // TEST THAT APPROPRIATE ROLE IS REFLECTED
 describe('Test Intern ROLE', () => {

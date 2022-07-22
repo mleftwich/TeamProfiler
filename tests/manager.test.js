@@ -1,4 +1,4 @@
-const Manager = require('../src/employees/manager');
+const Manager = require('../lib/employees/manager');
 
 // TEST THAT APPROPRIATE ROLE IS REFLECTED
 describe('Test Manager ROLE', () => {

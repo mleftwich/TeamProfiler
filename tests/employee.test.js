@@ -1,4 +1,4 @@
-const Employee = require("../src/employees/employee")
+const Employee = require("../lib/employees/employee")
 
 
 // TEST THAT NEW EMPLOYEES NAME IS RETURNED ACCURATELY 
