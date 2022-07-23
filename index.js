@@ -1,5 +1,13 @@
 // INSTALL INQUIRER
 const inquirer = require('inquirer');
+const fs = require('fs');
+const path = require('path')
+const outPutPath = path.join(__dirname, 'output', 'team.html')
+const outputHtml = require('./output/html');
+
+const Manager = require('./lib/employees/manager')
+const Engineer = require('./lib/employees/engineer')
+const Intern = require('./lib/employees/intern');
 
 
 const employees = [];
@@ -83,8 +91,12 @@ async function main() {
     
      // CHECK IF NEW ENTRY IS DESIRED
      if (!response.complete) {
-        //generate html
+        // IF NOT GENERATE HTML
+        const html = outputHtml(employees);
+        fs.writeFileSync(outPutPath, html, 'utf-8')
+
      } else {
+        // OTHERWISE RUN PROMPT AGAIN
        await main();
      }
 
