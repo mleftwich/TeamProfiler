@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const path = require('path')
 const outPutPath = path.join(__dirname, 'output', 'team.html')
-const outputHtml = require('./src/html');
+const outputHtml = require('./assets/src/html');
 
 const Manager = require('./lib/employees/manager')
 const Engineer = require('./lib/employees/engineer')
