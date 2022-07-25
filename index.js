@@ -75,6 +75,11 @@ async function main() {
         },
  ])
 
+
+    // CHECK FIELDS HAVE BEEN ENTERED
+    if(response.name === '' || response.id === '' || response.email === '' || response.officeNum === '' || response.gitHub === '' || response.school === '') {
+        console.error('You must provide an entry for all fields')
+    } else {
     // CHECK ROLE AND STORE EMPLOYEE
     if(response.role === managerRole) {
         employees.push(new Manager(response.name, response.id, response.email, response.officeNum))
@@ -99,7 +104,7 @@ async function main() {
         // OTHERWISE RUN PROMPT AGAIN
        await main();
      }
-
+    }
 }
 
 main();
