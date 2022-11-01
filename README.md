@@ -40,11 +40,11 @@
 
 
   ## Guidelines
-   None
+   Framework set up to allow for 3 types of employee - managers, engineers, and interns. Reach out if customisation needed.
 
 
   ## Tests
-   All test were run using node's Jest. Tests to check all classes functioning correctly.
+   All tests were run using node's Jest. Tests to check all classes functioning correctly.
 
 
   ## License
